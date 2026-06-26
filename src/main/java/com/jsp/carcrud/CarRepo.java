@@ -10,7 +10,7 @@ import java.util.Scanner;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class CarRepo {
-	static Connection conn;
+	static Connection conn; // Encapsulation
 
 	static {
 		try {
@@ -34,7 +34,7 @@ public class CarRepo {
 	public static void insertCar(Scanner sc) {
 		try {
 			String insertQuery = "INSERT INTO car VALUES(?,?,?,?,?,?,?)";
-			PreparedStatement st = conn.prepareStatement(insertQuery);
+			PreparedStatement st = conn.prepareStatement(insertQuery); // Abstraction (prepareStatement)
 
 			System.out.println("ENTER THE CAR'S DATA ->");
 			System.out.print("Enter the Car ID: ");
@@ -76,7 +76,7 @@ public class CarRepo {
 	public static void updateCar(Scanner sc) {
 		try {
 			String updateQuery = "UPDATE car SET color=? WHERE id=?";
-			PreparedStatement st = conn.prepareStatement(updateQuery);
+			PreparedStatement st = conn.prepareStatement(updateQuery); // Inheritance (Statement => PreparedStatement)
 
 			System.out.println("ENTER THE DATA FOR THE UPDATION ->");
 			System.out.print("Enter the id of the car to update: ");
@@ -119,7 +119,7 @@ public class CarRepo {
 			ResultSet rs = st.getResultSet();
 
 			while (rs.next()) {
-				int id = rs.getInt(1);
+				int id = rs.getInt(1); // Polymorphism ( getInt(columnNumber) or getInt(columnName))
 				String brand = rs.getString(2);
 				String model = rs.getString(3);
 				String color = rs.getString(4);
