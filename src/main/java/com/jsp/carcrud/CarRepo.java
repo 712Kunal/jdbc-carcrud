@@ -10,7 +10,7 @@ import java.util.Scanner;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class CarRepo {
-	static Connection conn; // Encapsulation
+	private static Connection conn; // Encapsulation
 
 	static {
 		try {
